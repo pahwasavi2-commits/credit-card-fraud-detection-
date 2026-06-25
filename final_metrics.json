@@ -1,0 +1,89 @@
+{
+  "best_model_name": "Random Forest",
+  "features": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount",
+    "Amount_log",
+    "Amount_sqrt",
+    "Hour"
+  ],
+  "threshold": 0.61,
+  "roc_auc": 0.9789928918428531,
+  "pr_auc": 0.8112536672881315,
+  "f1_fraud": 0.8228571428571428,
+  "recall_fraud": 0.7578947368421053,
+  "precision_fraud": 0.9,
+  "mcc": 0.8256334578952425,
+  "cm": {
+    "TN": 56643,
+    "FP": 8,
+    "FN": 23,
+    "TP": 72
+  },
+  "smote_config": {
+    "sampling_strategy": 0.2,
+    "k_neighbors": 5,
+    "train_before_smote": [
+      226602,
+      378
+    ],
+    "train_after_smote": [
+      226602,
+      45320
+    ]
+  },
+  "all_models": {
+    "Logistic Regression": {
+      "auc": 0.9737016766554963,
+      "prauc": 0.6909096238109348,
+      "f1": 0.8,
+      "recall": 0.7789473684210526,
+      "precision": 0.8222222222222222,
+      "threshold": 0.98
+    },
+    "Random Forest": {
+      "auc": 0.9789928918428531,
+      "prauc": 0.8112536672881315,
+      "f1": 0.8228571428571428,
+      "recall": 0.7578947368421053,
+      "precision": 0.9,
+      "threshold": 0.61
+    },
+    "XGBoost": {
+      "auc": 0.9787036787570063,
+      "prauc": 0.8085604061609492,
+      "f1": 0.8452380952380952,
+      "recall": 0.7473684210526316,
+      "precision": 0.9726027397260274,
+      "threshold": 0.8300000000000001
+    }
+  },
+  "methodology": "Anti-leakage pipeline: (1) stratified 80/20 split first, (2) StandardScaler fit on X_train only, (3) SMOTE on training set only (strategy=0.2, k=5), (4) model trained on SMOTE dataset, (5) threshold tuned on train predictions, (6) test set evaluated once at the end."
+}
